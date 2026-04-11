@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Md Shafiqul Baten Sumon — Cybersecurity Researcher & Educator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --deep: #111827;
+      --accent: #00c8a0;
+      --accent2: #0ea5e9;
+      --light: #f0f4f8;
+      --muted: #94a3b8;
+      --card: #151e2d;
+      --border: rgba(0,200,160,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--light);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(10,15,30,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(0,200,160,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(14,165,233,0.06) 0%, transparent 70%);
+    }
+    .grid-lines {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,200,160,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,200,160,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--navy);
+      border: 2px solid var(--accent);
+    }
+    .btn-primary:hover { background: transparent; color: var(--accent); }
+    .btn-outline {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid rgba(240,244,248,0.2);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      animation: fadeUp 0.8s 0.6s ease both;
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+    .divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      margin: 1.2rem 0 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--deep); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 0.98rem; }
+    .about-text p strong { color: var(--light); font-weight: 500; }
+    .about-info { display: flex; flex-direction: column; gap: 1.2rem; }
+    .info-row {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 1.2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .info-icon { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .info-val { font-size: 0.9rem; color: var(--light); }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--navy); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.8rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .skill-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .skill-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.8rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      background: rgba(0,200,160,0.08);
+      border: 1px solid rgba(0,200,160,0.2);
+      border-radius: 2px;
+      color: var(--muted);
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--deep); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2.4rem; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(0,200,160,0.5);
+    }
+    .timeline-date {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .timeline-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .timeline-org { color: var(--muted); font-size: 0.88rem; margin-bottom: 0.8rem; }
+    .timeline-desc { color: var(--muted); font-size: 0.9rem; }
+    .timeline-desc li { margin-bottom: 0.4rem; padding-left: 1rem; position: relative; }
+    .timeline-desc li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ── RESEARCH ── */
+    #research { background: var(--navy); }
+    .research-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.3s;
+    }
+    .research-card:hover { border-color: var(--accent); }
+    .research-type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent2);
+      margin-bottom: 0.6rem;
+    }
+    .research-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.4;
+    }
+    .research-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+    .research-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .meta-item { font-size: 0.78rem; color: var(--muted); }
+    .meta-item span { color: var(--accent); font-weight: 500; }
+
+    /* ── CERTS ── */
+    #certifications { background: var(--deep); }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .cert-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .cert-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .cert-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .cert-issuer { font-size: 0.75rem; color: var(--accent); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--navy); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-intro p { color: var(--muted); font-size: 0.98rem; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--light);
+      font-size: 0.88rem;
+      transition: all 0.3s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link-icon { color: var(--accent); font-size: 1.1rem; width: 20px; text-align: center; }
+    .contact-note {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 2rem;
+    }
+    .contact-note h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.8rem; }
+    .contact-note p { color: var(--muted); font-size: 0.88rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 4rem;
+      background: var(--deep);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero, section { padding: 6rem 1.5rem 3rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sumon</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Cybersecurity Researcher &amp; Educator</div>
+    <h1>Md Shafiqul Baten<br/><span>Sumon</span></h1>
+    <p class="hero-sub">
+      Adjunct Lecturer at Bronx Community College · Researcher at John Jay College of Criminal Justice, CUNY ·
+      Deepfake Detection &amp; AI Security Specialist
+    </p>
+    <div class="hero-btns">
+      <a href="#research" class="btn btn-primary">View Research</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years in IT &amp; Education</div>
+      </div>
+      <div>
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Deepfake Detection Accuracy</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">Courses Taught</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I Am</div>
+  <h2>About Me</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I am a cybersecurity researcher, educator, and practitioner based in <strong>Queens, New York</strong>.
+        I am completing my BSc in Computer Science and Information Security at Bronx Community College (CUNY),
+        graduating May 2026.
+      </p>
+      <p>
+        As an <strong>Adjunct Lecturer at BCC</strong>, I teach Cybersecurity (CSN 150) and Ethical Hacking &amp;
+        Penetration Testing (CSN 160), covering topics from OSI/TCP-IP fundamentals and IoT hardware hacking
+        to advanced pentesting methodologies.
+      </p>
+      <p>
+        My research at <strong>John Jay College of Criminal Justice, CUNY</strong> under Prof. Fatma Najar
+        focuses on AI-powered deepfake detection. I built two systems — SuGuard, a 4-modality neurosymbolic
+        pipeline, and DeepGuard, a visual classifier — achieving up to 98.25% accuracy. My IEEE Access
+        journal paper on cross-dataset generalization in deepfake detection is currently in progress.
+      </p>
+      <p>
+        I hold an AAS in Cybersecurity &amp; Networking (Carl Polowczyk Award recipient, Phi Theta Kappa
+        honor society) and certifications including <strong>CompTIA A+, Linux+, and CEH v12</strong>.
+      </p>
+    </div>
+    <div class="about-info">
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-val">Queens, NY 11432</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🎓</div>
+        <div>
+          <div class="info-label">Degree</div>
+          <div class="info-val">BSc Computer Science &amp; Information Security — BCC, CUNY (May 2026)</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🏛️</div>
+        <div>
+          <div class="info-label">Research Institution</div>
+          <div class="info-val">John Jay College of Criminal Justice, CUNY</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📧</div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-val">mdshafiqulbatensumon@outlook.com</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🌐</div>
+        <div>
+          <div class="info-label">OPT / Work Authorization</div>
+          <div class="info-val">OPT begins June 1, 2026 · STEM OPT eligible (up to 36 months)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I Know</div>
+  <h2>Skills &amp; Expertise</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-category">Core Domain</div>
+      <h3>Cybersecurity</h3>
+      <div class="skill-tags">
+        <span class="tag">Ethical Hacking</span>
+        <span class="tag">Penetration Testing</span>
+        <span class="tag">Network Security</span>
+        <span class="tag">Malware Analysis</span>
+        <span class="tag">IoT Security</span>
+        <span class="tag">Wireless Security</span>
+        <span class="tag">VPN / Firewalls</span>
+        <span class="tag">Steganography</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">AI / ML Research</div>
+      <h3>Deepfake Detection</h3>
+      <div class="skill-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">EfficientNet</span>
+        <span class="tag">DistilRoBERTa</span>
+        <span class="tag">Whisper ASR</span>
+        <span class="tag">rPPG</span>
+        <span class="tag">MFCC</span>
+        <span class="tag">Neurosymbolic AI</span>
+        <span class="tag">Cross-Dataset Eval</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Programming</div>
+      <h3>Languages &amp; Frameworks</h3>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Bash</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Tools &amp; Platforms</div>
+      <h3>Security Tooling</h3>
+      <div class="skill-tags">
+        <span class="tag">Kali Linux</span>
+        <span class="tag">Parrot OS</span>
+        <span class="tag">Metasploit</span>
+        <span class="tag">Wireshark</span>
+        <span class="tag">Nmap</span>
+        <span class="tag">Steghide</span>
+        <span class="tag">ESP32</span>
+        <span class="tag">GitHub</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Teaching</div>
+      <h3>Education &amp; Mentoring</h3>
+      <div class="skill-tags">
+        <span class="tag">Curriculum Design</span>
+        <span class="tag">Academic Writing</span>
+        <span class="tag">Technical Tutoring</span>
+        <span class="tag">Lab Instruction</span>
+        <span class="tag">Student Support</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Infrastructure</div>
+      <h3>Systems &amp; Networking</h3>
+      <div class="skill-tags">
+        <span class="tag">TCP/IP</span>
+        <span class="tag">OSI Model</span>
+        <span class="tag">Linux Admin</span>
+        <span class="tag">Hardware Repair</span>
+        <span class="tag">IT Support</span>
+        <span class="tag">CompTIA Stack</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">My Journey</div>
+  <h2>Experience</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2024 – Present</div>
+      <div class="timeline-role">Adjunct Lecturer</div>
+      <div class="timeline-org">Bronx Community College, CUNY — Bronx, NY</div>
+      <ul class="timeline-desc">
+        <li><strong>Fall 2025:</strong> CSN 110 Network Fundamentals — ISO model, network topology, structured cabling, LAN technologies, Ethernet, network protocols</li>
+        <li><strong>Fall 2025:</strong> CSN 120 Network Switching and Routing — switching concepts, routing protocols, inter-VLAN routing, network infrastructure</li>
+        <li><strong>Fall 2025:</strong> CSN 130 Network Operating Systems I — Linux/Windows server administration, file systems, user management, network services</li>
+        <li>Also teaching CSN 150: Cybersecurity — OSI/TCP-IP, malware, wireless, VPN, IoT/ESP32 hardware hacking, Steghide, Kali Linux</li>
+        <li>Also teaching CSN 160: Ethical Hacking &amp; Pentesting — footprinting, scanning, enumeration, web/wireless hacking, cryptography (CEH 3rd ed.)</li>
+        <li>Designing labs and assessments across multiple courses each semester</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Feb 2024 – Present</div>
+      <div class="timeline-role">IT Assistant Technician &amp; Tutor</div>
+      <div class="timeline-org">Bronx Community College, CUNY — Bronx, NY</div>
+      <ul class="timeline-desc">
+        <li>Providing technical support to a large population of students and faculty</li>
+        <li>Hardware diagnostics, system maintenance, and helpdesk operations</li>
+        <li>Tutoring students in computer science and networking subjects</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024 – Present</div>
+      <div class="timeline-role">Researcher</div>
+      <div class="timeline-org">John Jay College of Criminal Justice, CUNY — New York, NY</div>
+      <ul class="timeline-desc">
+        <li>Conducting deepfake detection research under mentorship of Prof. Fatma Najar</li>
+        <li>Built SuGuard: 4-modality neurosymbolic pipeline achieving 98.25% accuracy / 98.27% F1</li>
+        <li>Built DeepGuard: EfficientNet-B4 visual classifier achieving 98% accuracy</li>
+        <li>Presenting at CUNY PRISM Spring Symposium (April 29, 2026) and OSRC event (May 8, 2026)</li>
+        <li>Co-authoring IEEE Access journal paper on cross-dataset generalization in deepfake detection</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-label">Academic Work</div>
+  <h2>Research &amp; Projects</h2>
+  <div class="divider"></div>
+
+  <div class="research-card">
+    <div class="research-type">IEEE Access — Journal Paper (In Progress)</div>
+    <h3>Cross-Dataset Generalization in Deepfake Detection: A Comparative Study of Neurosymbolic Multimodal and Single-Modality Approaches</h3>
+    <p>
+      Co-authored with Prof. Fatma Najar. Investigates how well deepfake detection models trained on one dataset
+      generalize to others. Key finding: high in-distribution accuracy does not predict cross-dataset robustness.
+      SuGuard drops from 98.25% to 48% cross-dataset; DeepGuard improves by 9.25 points cross-dataset.
+      Physiology modality shows highest stability (153.2% retention).
+    </p>
+    <div class="research-meta">
+      <div class="meta-item">Datasets: <span>FakeAVCeleb v1.2, Celeb-DF-v2</span></div>
+      <div class="meta-item">Best Accuracy: <span>98.25%</span></div>
+      <div class="meta-item">Best AUC: <span>0.9993</span></div>
+    </div>
+  </div>
+
+  <div class="research-card">
+    <div class="research-type">Project — SuGuard (PRISM Symposium)</div>
+    <h3>SuGuard: A 4-Modality Neurosymbolic Deepfake Detection Pipeline</h3>
+    <p>
+      A multimodal deepfake detection system combining Visual (EfficientNet-B0), Audio (MFCC heuristic),
+      Text (Whisper + DistilRoBERTa), and Physiology (rPPG) modalities. Uses weighted fusion
+      (visual 0.40, audio 0.25, text 0.25, physiology 0.10) with inter-modal consistency scoring.
+      Deployed via Flask with a forensic reasoning panel and temporal spike chart.
+    </p>
+    <div class="research-meta">
+      <div class="meta-item">Accuracy: <span>98.25%</span></div>
+      <div class="meta-item">F1 Score: <span>98.27%</span></div>
+      <div class="meta-item">AUC: <span>0.9993</span></div>
+      <div class="meta-item">Dataset: <span>FakeAVCeleb v1.2</span></div>
+      <div class="meta-item">GitHub: <span>suguard-multimodal-deepfake-detection</span></div>
+    </div>
+  </div>
+
+  <div class="research-card">
+    <div class="research-type">Project — DeepGuard (OSRC)</div>
+    <h3>DeepGuard: Progressive Curriculum EfficientNet-B4 Deepfake Classifier</h3>
+    <p>
+      A single-modality visual deepfake classifier built on EfficientNet-B4 trained via progressive
+      curriculum learning (50→100→200 videos/class) on Celeb-DF-v2. Deployed as a Flask web application.
+      Demonstrates that single-modality models can achieve competitive accuracy with simpler architecture.
+    </p>
+    <div class="research-meta">
+      <div class="meta-item">Accuracy: <span>98%</span></div>
+      <div class="meta-item">Dataset: <span>Celeb-DF-v2</span></div>
+      <div class="meta-item">GitHub: <span>deepguard-deepfake-detection</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Credentials</div>
+  <h2>Certifications &amp; Awards</h2>
+  <div class="divider"></div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🛡️</div>
+      <div class="cert-name">CEH v12</div>
+      <div class="cert-issuer">EC-Council — Certified Ethical Hacker</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">💻</div>
+      <div class="cert-name">CompTIA A+</div>
+      <div class="cert-issuer">CompTIA</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🐧</div>
+      <div class="cert-name">CompTIA Linux+</div>
+      <div class="cert-issuer">CompTIA</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏆</div>
+      <div class="cert-name">Carl Polowczyk Award</div>
+      <div class="cert-issuer">Bronx Community College</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⭐</div>
+      <div class="cert-name">Phi Theta Kappa</div>
+      <div class="cert-issuer">International Honor Society</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <div class="cert-name">AAS Cybersecurity &amp; Networking</div>
+      <div class="cert-issuer">Bronx Community College, CUNY</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's Connect</div>
+  <h2>Contact</h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-intro">
+      <p>
+        I am open to opportunities in cybersecurity analysis, penetration testing, cloud security engineering,
+        and academic or research roles. My OPT begins June 1, 2026, with STEM OPT eligibility for up to 36 months.
+      </p>
+      <p>
+        Feel free to reach out for research collaborations, speaking engagements, job opportunities, or just to connect.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:mdshafiqulbatensumon@outlook.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          mdshafiqulbatensumon@outlook.com
+        </a>
+        <a href="tel:5162335765" class="contact-link">
+          <span class="contact-link-icon">📞</span>
+          (516) 233-5765
+        </a>
+        <a href="https://linkedin.com/in/md-shafiqul-baten-sumon-41815531a" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          linkedin.com/in/md-shafiqul-baten-sumon
+        </a>
+        <a href="https://github.com/mdshafiqulbaten" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🐙</span>
+          github.com/mdshafiqulbaten
+        </a>
+      </div>
+    </div>
+    <div class="contact-note">
+      <h3>🎯 Target Roles</h3>
+      <p>
+        Cybersecurity Analyst · Penetration Tester · Cloud Security Engineer ·
+        Academic / Research Position · CUNY Adjunct (H-1B cap-exempt pathway)
+      </p>
+      <br/>
+      <h3>📍 Location &amp; Authorization</h3>
+      <p>
+        Based in Queens, NY. OPT starts June 1, 2026.
+        STEM OPT eligible — up to 36 months work authorization.
+      </p>
+      <br/>
+      <h3>🔬 Research Interests</h3>
+      <p>
+        Deepfake Detection · AI Security · Neurosymbolic AI ·
+        Multimodal Machine Learning · Cybersecurity Education
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Md Shafiqul Baten Sumon · Queens, NY ·
+    <a href="https://github.com/mdshafiqulbaten" target="_blank">GitHub</a> ·
+    <a href="https://linkedin.com/in/md-shafiqul-baten-sumon-41815531a" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
+</body>
+</html>
