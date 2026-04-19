@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Shafiqul Baten Sumon — Cybersecurity Researcher & Educator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy2: #1a2e45;
+  --blue: #1e5fa8;
+  --blue-light: #2e7dd1;
+  --gold: #c8a84b;
+  --gold-light: #e8c96e;
+  --cream: #f5f0e8;
+  --cream2: #ede8de;
+  --text: #1a1a2e;
+  --text2: #3d3d5c;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,27,42,0.97);
+  backdrop-filter: blur(12px);
+  padding: 0 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid rgba(200,168,75,0.2);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 80px 6rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(46,125,209,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(200,168,75,0.08) 0%, transparent 50%);
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-text { position: relative; z-index: 2; }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+  display: block;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 900; line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.hero h1 span { color: var(--gold); display: block; }
+.hero-desc {
+  font-size: 1rem; line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-bottom: 3rem;
+}
+.stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--gold);
+}
+.stat-label {
+  font-size: 0.72rem; font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 2px; font-weight: 600;
+  font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.2s; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-gold { background: var(--gold); color: var(--navy); border: 2px solid var(--gold); }
+.btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
+.btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-right {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding-left: 3rem;
+}
+.hero-photo-wrap {
+  width: 280px; height: 280px;
+  position: relative;
+}
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute; inset: -8px;
+  border: 2px solid var(--gold);
+  transform: rotate(4deg);
+  border-radius: 2px;
+}
+.hero-photo-wrap::after {
+  content: '';
+  position: absolute; inset: -16px;
+  border: 1px solid rgba(200,168,75,0.3);
+  transform: rotate(-2deg);
+  border-radius: 2px;
+}
+.hero-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; border-radius: 2px;
+  position: relative; z-index: 1;
+  filter: grayscale(15%) contrast(1.05);
+}
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 2rem; justify-content: center;
+}
+.badge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,168,75,0.3);
+  color: rgba(255,255,255,0.8);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* SECTIONS */
+section { padding: 6rem 6rem; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; font-weight: 500;
+  color: var(--blue); letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--blue); display: block;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900; line-height: 1.1;
+  color: var(--navy); margin-bottom: 3rem;
+}
+
+/* ABOUT */
+.about-section { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 4rem; align-items: start;
+}
+.about-text p {
+  font-size: 1rem; line-height: 1.85;
+  color: var(--text2); margin-bottom: 1.5rem;
+}
+.about-text strong { color: var(--navy); }
+.contact-block {
+  background: var(--navy);
+  padding: 2rem; border-radius: 2px;
+  border-left: 3px solid var(--gold);
+}
+.contact-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.contact-item {
+  display: flex; flex-direction: column;
+  margin-bottom: 1rem;
+}
+.contact-item .label {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem;
+}
+.contact-item a, .contact-item span {
+  font-size: 0.85rem; color: rgba(255,255,255,0.8);
+  text-decoration: none; word-break: break-all;
+}
+.contact-item a:hover { color: var(--gold); }
+.opt-tag {
+  margin-top: 1.5rem;
+  background: rgba(200,168,75,0.15);
+  border: 1px solid rgba(200,168,75,0.4);
+  padding: 0.75rem 1rem; border-radius: 2px;
+  font-size: 0.78rem; color: var(--gold-light);
+  line-height: 1.5;
+}
+
+/* SKILLS */
+.skills-section { background: var(--navy); }
+.skills-section .section-title { color: var(--white); }
+.skills-section .section-label { color: var(--gold); }
+.skills-section .section-label::before { background: var(--gold); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.skill-card {
+  background: var(--navy2);
+  padding: 1.75rem;
+  transition: background 0.2s;
+}
+.skill-card:hover { background: rgba(46,125,209,0.15); }
+.skill-icon {
+  font-size: 1.5rem; margin-bottom: 0.75rem;
+}
+.skill-card h4 {
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.75);
+  padding: 0.2rem 0.6rem; border-radius: 2px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+}
+
+/* RESEARCH */
+.research-section { background: var(--cream2); }
+.research-grid { display: grid; gap: 2rem; }
+.research-card {
+  background: var(--white);
+  border-left: 4px solid var(--blue);
+  padding: 2rem 2.5rem;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.research-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.12); transform: translateX(4px); }
+.research-card.featured { border-color: var(--gold); }
+.research-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.tag-ieee { background: #fff3cd; color: #856404; }
+.tag-active { background: #d1e7dd; color: #0f5132; }
+.tag-github { background: #e8f0fe; color: #1e4898; }
+.research-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.5rem;
+}
+.research-card .subtitle {
+  font-size: 0.82rem; color: var(--blue);
+  font-weight: 500; margin-bottom: 1rem;
+}
+.research-card p {
+  font-size: 0.9rem; line-height: 1.75;
+  color: var(--text2); margin-bottom: 1rem;
+}
+.metrics {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  margin: 1.25rem 0;
+}
+.metric {
+  background: var(--navy);
+  padding: 0.5rem 1rem; border-radius: 2px;
+  text-align: center;
+}
+.metric-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem; font-weight: 500;
+  color: var(--gold); display: block;
+}
+.metric-label {
+  font-size: 0.65rem; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.research-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--blue); text-decoration: none;
+  text-transform: uppercase;
+}
+.research-link:hover { color: var(--navy); }
+.research-link::after { content: '→'; }
+
+/* EXPERIENCE */
+.experience-section { background: var(--cream); }
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute;
+  left: 0; top: 8px; bottom: 0;
+  width: 1px; background: linear-gradient(to bottom, var(--blue), transparent);
+}
+.timeline-item {
+  position: relative; margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--cream2);
+}
+.timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
+.timeline-item::before {
+  content: ''; position: absolute;
+  left: -2.4rem; top: 8px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue); border: 2px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--blue);
+}
+.timeline-item.current::before { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+.timeline-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.4rem; }
+.timeline-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--navy);
+}
+.timeline-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; color: var(--blue);
+  font-weight: 500; white-space: nowrap;
+  background: rgba(30,95,168,0.1); padding: 0.2rem 0.6rem; border-radius: 2px;
+}
+.timeline-org {
+  font-size: 0.85rem; font-weight: 600;
+  color: var(--blue); margin-bottom: 0.75rem;
+}
+.timeline-bullets { list-style: none; }
+.timeline-bullets li {
+  font-size: 0.88rem; line-height: 1.7; color: var(--text2);
+  padding-left: 1rem; position: relative; margin-bottom: 0.3rem;
+}
+.timeline-bullets li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--gold); font-size: 0.65rem; top: 0.35rem;
+}
+
+/* EDUCATION */
+.edu-section { background: var(--navy); }
+.edu-section .section-title { color: var(--white); }
+.edu-section .section-label { color: var(--gold); }
+.edu-section .section-label::before { background: var(--gold); }
+.edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.edu-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 2rem; border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.edu-card:hover { border-color: var(--gold); background: rgba(200,168,75,0.06); }
+.edu-degree {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem;
+}
+.edu-school { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.25rem; }
+.edu-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem;
+}
+.edu-note { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+/* CERTS */
+.certs-section { background: var(--cream2); }
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.cert-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 1.25rem;
+  border-radius: 2px;
+  border-top: 3px solid var(--blue);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.cert-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.cert-card h4 {
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.3rem;
+}
+.cert-card p { font-size: 0.75rem; color: var(--text2); line-height: 1.5; }
+
+/* LANGUAGES */
+.lang-strip {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  margin-top: 2rem;
+}
+.lang-pill {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08);
+  padding: 0.6rem 1.2rem; border-radius: 100px;
+}
+.lang-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+.lang-level { font-size: 0.72rem; color: var(--text2); font-style: italic; }
+.lang-dot { width: 8px; height: 8px; border-radius: 50%; }
+.lang-dot.fluent { background: #198754; }
+.lang-dot.intermediate { background: #fd7e14; }
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  padding: 3rem 6rem;
+  border-top: 1px solid rgba(200,168,75,0.2);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+footer p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  text-decoration: none; text-transform: uppercase;
+  letter-spacing: 0.06em; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ANIMATIONS */
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1024px) {
+  nav { padding: 0 2rem; }
+  .hero { grid-template-columns: 1fr; padding: 100px 2.5rem 4rem; text-align: center; }
+  .hero-eyebrow { justify-content: center; }
+  .hero-desc { margin: 0 auto 2.5rem; }
+  .hero-ctas { justify-content: center; }
+  .hero-stats { max-width: 360px; margin: 0 auto 3rem; }
+  .hero-right { padding-left: 0; margin-top: 3rem; }
+  section { padding: 4rem 2.5rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .edu-grid { grid-template-columns: 1fr 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  footer { padding: 2rem 2.5rem; flex-direction: column; text-align: center; }
+}
+@media (max-width: 640px) {
+  nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .hero { padding: 88px 1.5rem 3rem; }
+  section { padding: 3.5rem 1.5rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MBS</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-text fade-up">
+    <p class="hero-eyebrow">Cybersecurity Researcher &amp; Educator</p>
+    <h1>Md Shafiqul<span>Baten Sumon</span></h1>
+    <p class="hero-desc">Adjunct Lecturer at Bronx Community College · Graduate Researcher at John Jay College, CUNY · Building AI-powered deepfake detection systems and teaching the next generation of cybersecurity professionals.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">98.25%</div><div class="stat-label">SuGuard Accuracy</div></div>
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Students Taught</div></div>
+      <div class="stat"><div class="stat-num">14+</div><div class="stat-label">Certs &amp; Awards</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#research" class="btn btn-gold">View Research</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right fade-up" style="transition-delay:0.15s">
+    <div class="hero-photo-wrap">
+      <img src="https://mdshafiqulbaten.github.io/profile.jpg" alt="Md Shafiqul Baten Sumon" class="hero-photo" onerror="this.style.display='none'">
+    </div>
+    <div class="hero-badges">
+      <span class="badge">CEH v12</span>
+      <span class="badge">CompTIA A+</span>
+      <span class="badge">IBM Cybersecurity</span>
+      <span class="badge">IEEE Access (Pending)</span>
+      <span class="badge">Phi Theta Kappa</span>
+      <span class="badge">OPT Eligible Jun 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Who I Am</h2>
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <p>I am a cybersecurity researcher, AI developer, and adjunct lecturer currently completing a <strong>B.S. in Computer Science &amp; Information Security</strong> at John Jay College of Criminal Justice (CUNY). I conduct deepfake detection research under <strong>Prof. Fatma Najar</strong>, with a comparative study of neurosymbolic multimodal and single-modality AI approaches currently under review at <strong>IEEE Access</strong>.</p>
+      <p>At <strong>Bronx Community College (CUNY)</strong>, I teach Cybersecurity (CSN 150) and Ethical Hacking &amp; Penetration Testing (CSN 160), and provide IT support to 500+ students and faculty. I hold a <strong>Certified Ethical Hacker (CEH v12)</strong> credential, CompTIA A+ and Linux+ certifications, IBM Cybersecurity Analyst certificate, and seven Google Professional Certificates.</p>
+      <p>Before entering academia and cybersecurity, I built over a decade of international management and technical experience across <strong>the UK, Italy, and Sweden</strong> — including specialist credentials in electric and hybrid vehicle technology from YrkesAkademin YH AB, Sweden. I bring fluency in six languages and a track record of leading teams, solving complex problems, and adapting across industries.</p>
+      <p>I am authorized to work full-time in the U.S. on OPT beginning <strong>June 1, 2026</strong>, with STEM OPT eligibility for up to 36 months. Target roles include cybersecurity analyst, penetration tester, cloud security engineer, and academic or research positions.</p>
+    </div>
+    <div>
+      <div class="contact-block" id="contact">
+        <h3>Contact &amp; Links</h3>
+        <div class="contact-item"><span class="label">Email</span><a href="mailto:mdshafiqulbatensumon@outlook.com">mdshafiqulbatensumon@outlook.com</a></div>
+        <div class="contact-item"><span class="label">Phone</span><span>(516) 233-5765</span></div>
+        <div class="contact-item"><span class="label">Location</span><span>Jamaica, Queens, NY</span></div>
+        <div class="contact-item"><span class="label">LinkedIn</span><a href="https://linkedin.com/in/md-shafiqul-baten-sumon-41815531a" target="_blank">md-shafiqul-baten-sumon</a></div>
+        <div class="contact-item"><span class="label">GitHub</span><a href="https://github.com/mdshafiqulbaten" target="_blank">github.com/mdshafiqulbaten</a></div>
+        <div class="contact-item"><span class="label">BCC Office</span><span>Dept. of Engineering Physics &amp; Technology, Room CPH 106</span></div>
+        <div class="opt-tag">🇺🇸 OPT Work Authorization — Full-Time Eligible from June 1, 2026 · STEM OPT eligible (up to 36 months)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid fade-up">
+    <div class="skill-card">
+      <div class="skill-icon">🛡️</div>
+      <h4>Cybersecurity Tools</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Nmap</span><span class="skill-tag">Wireshark</span><span class="skill-tag">Burp Suite</span><span class="skill-tag">Metasploit</span><span class="skill-tag">Kali Linux</span><span class="skill-tag">Parrot OS</span><span class="skill-tag">TryHackMe</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎯</div>
+      <h4>Offensive Security</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">OSINT</span><span class="skill-tag">Google Dorking</span><span class="skill-tag">Subdomain Enum</span><span class="skill-tag">DNS Analysis</span><span class="skill-tag">Web Exploitation</span><span class="skill-tag">Privilege Escalation</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <h4>Programming</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">C++</span><span class="skill-tag">Bash</span><span class="skill-tag">Flask</span><span class="skill-tag">PyTorch</span><span class="skill-tag">GitHub</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <h4>AI &amp; Machine Learning</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">EfficientNet</span><span class="skill-tag">Deepfake Detection</span><span class="skill-tag">Multimodal Fusion</span><span class="skill-tag">Explainable AI</span><span class="skill-tag">Transfer Learning</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <h4>Networking &amp; Cloud</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">TCP/IP</span><span class="skill-tag">OSI Model</span><span class="skill-tag">VPN/OpenVPN</span><span class="skill-tag">IoT/ESP32</span><span class="skill-tag">DigitalOcean</span><span class="skill-tag">Linux Admin</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🚗</div>
+      <h4>Automotive Technology</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Electric/Hybrid Systems</span><span class="skill-tag">ECU Diagnostics</span><span class="skill-tag">Vehicle Repair</span><span class="skill-tag">Heavy Vehicles (Scania)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="research-section" id="research">
+  <div class="section-label">Research</div>
+  <h2 class="section-title">AI Security Research</h2>
+  <div class="research-grid fade-up">
+
+    <div class="research-card featured">
+      <span class="research-tag tag-ieee">📄 IEEE Access — Under Review</span>
+      <h3>Cross-Dataset Generalization in Deepfake Detection</h3>
+      <p class="subtitle">A Comparative Study of Neurosymbolic Multimodal and Single-Modality Approaches · Co-authored with Prof. Fatma Najar, John Jay College, CUNY</p>
+      <p>Designed and executed controlled experiments comparing SuGuard (4-modality neurosymbolic) and DeepGuard (single-modality EfficientNet-B4) on FakeAVCeleb, Celeb-DF-v2, and FaceForensics++ (5,000 videos). Key finding: physiology modality retains 153.2% discriminative signal cross-dataset; visual collapses to 4.2%.</p>
+      <div class="metrics">
+        <div class="metric"><span class="metric-num">SuGuard</span><span class="metric-label">98.25% → 48.00% cross-dataset</span></div>
+        <div class="metric"><span class="metric-num">DeepGuard</span><span class="metric-label">54.75% → 64.00% cross-dataset</span></div>
+        <div class="metric"><span class="metric-num">5,000</span><span class="metric-label">FF++ Videos Evaluated</span></div>
+      </div>
+      <a href="https://github.com/mdshafiqulbaten/deepfake-cross-dataset-generalization" target="_blank" class="research-link">View on GitHub</a>
+    </div>
+
+    <div class="research-card">
+      <span class="research-tag tag-active">✅ Completed</span>
+      <h3>SuGuard — Multimodal Neurosymbolic Deepfake Detection</h3>
+      <p class="subtitle">4-Modality Pipeline: Visual · Audio · Text · Physiology</p>
+      <p>Built a neurosymbolic deepfake detection system combining EfficientNet-B0 (visual), MFCC heuristic (audio), Whisper + DistilRoBERTa (text), and rPPG forehead ROI (physiology). Achieved 98.25% accuracy on FakeAVCeleb. Deployed with Flask GUI featuring drag-and-drop upload, modality score cards, and neurosymbolic reasoning panel.</p>
+      <div class="metrics">
+        <div class="metric"><span class="metric-num">98.25%</span><span class="metric-label">Accuracy</span></div>
+        <div class="metric"><span class="metric-num">98.27%</span><span class="metric-label">F1 Score</span></div>
+        <div class="metric"><span class="metric-num">0.9993</span><span class="metric-label">AUC</span></div>
+      </div>
+      <a href="https://github.com/mdshafiqulbaten/suguard-multimodal-deepfake-detection" target="_blank" class="research-link">View on GitHub</a>
+    </div>
+
+    <div class="research-card">
+      <span class="research-tag tag-github">🔬 Open Source</span>
+      <h3>DeepGuard — Single-Modality Deepfake Detector</h3>
+      <p class="subtitle">EfficientNet-B4 · Progressive Transfer Learning · Celeb-DF-v2</p>
+      <p>Trained EfficientNet-B4 progressively on Celeb-DF-v2 (200 real + 200 fake) through 3 stages — reaching 98.00% in-distribution accuracy. Key cross-dataset insight: single-modality visual models can generalize better (+9.25 pts) than complex multimodal fusion systems on unseen data. Flask web app deployed at localhost:5000.</p>
+      <div class="metrics">
+        <div class="metric"><span class="metric-num">98.00%</span><span class="metric-label">Accuracy</span></div>
+        <div class="metric"><span class="metric-num">Stage 3</span><span class="metric-label">Progressive Training</span></div>
+        <div class="metric"><span class="metric-num">+9.25 pts</span><span class="metric-label">Cross-Dataset Gain</span></div>
+      </div>
+      <a href="https://github.com/mdshafiqulbaten/deepguard-deepfake-detection" target="_blank" class="research-link">View on GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Professional History</h2>
+  <div class="timeline fade-up">
+
+    <div class="timeline-item current">
+      <div class="timeline-header">
+        <span class="timeline-title">Adjunct Lecturer — Cybersecurity &amp; Networking</span>
+        <span class="timeline-date">Aug 2025 – Present</span>
+      </div>
+      <div class="timeline-org">Bronx Community College (CUNY) · Bronx, NY</div>
+      <ul class="timeline-bullets">
+        <li>Teach CSN 150 (Cybersecurity, 4cr) and CSN 160 (Ethical Hacking &amp; Penetration Testing, 3cr) to 500+ students</li>
+        <li>Labs cover Nmap, OSINT, web exploitation, OpenVPN, IoT/ESP32, Steghide, Kali Linux, TryHackMe, Metasploitable2</li>
+        <li>Design curriculum, quizzes, and assessments; qualified to teach CSN 110, 120, 130</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item current">
+      <div class="timeline-header">
+        <span class="timeline-title">IT Assistant Technician &amp; Tutor</span>
+        <span class="timeline-date">Feb 2024 – Present</span>
+      </div>
+      <div class="timeline-org">Bronx Community College (CUNY) · Bronx, NY</div>
+      <ul class="timeline-bullets">
+        <li>Technical support and tutoring for 500+ students and faculty in networking and cybersecurity</li>
+        <li>Workstation setup, hardware/software troubleshooting, Windows environments, lab support</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item current">
+      <div class="timeline-header">
+        <span class="timeline-title">Graduate Researcher</span>
+        <span class="timeline-date">2024 – Present</span>
+      </div>
+      <div class="timeline-org">John Jay College of Criminal Justice, CUNY · New York, NY · Lab of Prof. Fatma Najar</div>
+      <ul class="timeline-bullets">
+        <li>Deepfake detection, AI security, and cross-dataset generalization research</li>
+        <li>Co-authoring IEEE Access journal paper on neurosymbolic vs. single-modality approaches</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-title">Personal Technician — Electric &amp; Hybrid Vehicles</span>
+        <span class="timeline-date">2020 – 2022</span>
+      </div>
+      <div class="timeline-org">Volvo / Bilia · Sweden</div>
+      <ul class="timeline-bullets">
+        <li>Diagnosed and repaired hybrid/EV powertrain and ECU systems; customer-facing specialist service</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-title">Heavy Vehicle Technician</span>
+        <span class="timeline-date">2021 – 2022</span>
+      </div>
+      <div class="timeline-org">Scania · Stockholm, Sweden</div>
+      <ul class="timeline-bullets">
+        <li>Maintenance and fault diagnosis on heavy commercial vehicles using advanced Scania diagnostic tools</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-title">Manager &amp; Training Coordinator</span>
+        <span class="timeline-date">2013 – 2019</span>
+      </div>
+      <div class="timeline-org">Burger King · Stockholm, Örnsköldsvik, Sundsvall — Sweden</div>
+      <ul class="timeline-bullets">
+        <li>Multi-site operations management across three locations; supervised 20+ staff per shift</li>
+        <li>Led training programs to improve performance, service standards, and operational efficiency</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-title">Hotel Operations Manager</span>
+        <span class="timeline-date">2009 – 2013</span>
+      </div>
+      <div class="timeline-org">Hotel Metro Roma · Rome, Italy</div>
+      <ul class="timeline-bullets">
+        <li>Managed hotel operations, guest relations, and multilingual staff coordination</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-title">Restaurant Manager</span>
+        <span class="timeline-date">2007 – 2009</span>
+      </div>
+      <div class="timeline-org">McDonald's · London, UK</div>
+      <ul class="timeline-bullets">
+        <li>Supervised daily operations, team performance, and staff training in a high-volume environment</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu-section" id="education">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic Background</h2>
+  <div class="edu-grid fade-up">
+    <div class="edu-card">
+      <div class="edu-degree">B.S. Computer Science &amp; Information Security</div>
+      <div class="edu-school">John Jay College of Criminal Justice, CUNY</div>
+      <div class="edu-year">Expected 2026 · New York, NY</div>
+      <div class="edu-note">Phi Theta Kappa Honor Society · Carl Polowczyk Memorial Award (May 2024)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">A.A.S. Cybersecurity &amp; Networking</div>
+      <div class="edu-school">Bronx Community College, CUNY</div>
+      <div class="edu-year">2024 · Bronx, NY</div>
+      <div class="edu-note">Dean's List · Specialization in ethical hacking and network security</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">B.S. Computing and Information Systems</div>
+      <div class="edu-school">University of York</div>
+      <div class="edu-year">2007 · York, United Kingdom</div>
+      <div class="edu-note">Verification No: UOY73359 · Awarded 20th December 2007</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-section" id="certifications">
+  <div class="section-label">Certifications</div>
+  <h2 class="section-title">Credentials &amp; Awards</h2>
+  <div class="certs-grid fade-up">
+    <div class="cert-card"><h4>CEH v12</h4><p>Certified Ethical Hacker · EC-Council</p></div>
+    <div class="cert-card"><h4>CompTIA A+</h4><p>Core 1 &amp; Core 2 · Hardware &amp; OS Support</p></div>
+    <div class="cert-card"><h4>CompTIA Linux+</h4><p>Linux System Administration</p></div>
+    <div class="cert-card"><h4>IBM Cybersecurity Analyst</h4><p>Professional Certificate · IBM</p></div>
+    <div class="cert-card"><h4>Google Cybersecurity</h4><p>Professional Certificate · Google</p></div>
+    <div class="cert-card"><h4>Google IT Support</h4><p>Professional Certificate · Google</p></div>
+    <div class="cert-card"><h4>Google Data Analytics</h4><p>Professional Certificate · Google</p></div>
+    <div class="cert-card"><h4>Google Project Management</h4><p>Professional Certificate · Google</p></div>
+    <div class="cert-card"><h4>Google UX Design</h4><p>Professional Certificate · Google</p></div>
+    <div class="cert-card"><h4>Google Digital Marketing</h4><p>Professional Certificate · Google</p></div>
+    <div class="cert-card"><h4>Google IT Automation</h4><p>Python · Professional Certificate · Google</p></div>
+    <div class="cert-card" style="border-top-color: var(--gold)"><h4>HVE Diploma</h4><p>Electric &amp; Hybrid Vehicle Technology · YrkesAkademin YH AB, Sweden, 2021 · 300 credits</p></div>
+    <div class="cert-card" style="border-top-color: var(--gold)"><h4>Passenger Car Mechanic</h4><p>Movant AB, Umeå, Sweden · 2018–2019 · Notarized English translation</p></div>
+    <div class="cert-card" style="border-top-color: #198754"><h4>🏆 Carl Polowczyk Award</h4><p>Memorial Award Recipient · May 2024 · John Jay College, CUNY</p></div>
+    <div class="cert-card" style="border-top-color: #198754"><h4>Phi Theta Kappa</h4><p>International Honor Society · Two-Year College Academic Excellence</p></div>
+    <div class="cert-card"><h4>TryHackMe</h4><p>Hands-on Cybersecurity Labs &amp; Challenges</p></div>
+  </div>
+
+  <!-- Languages -->
+  <div style="margin-top: 3rem;">
+    <div class="section-label" style="margin-bottom: 1rem;">Languages</div>
+    <div class="lang-strip fade-up">
+      <div class="lang-pill"><div class="lang-dot fluent"></div><span class="lang-name">English</span><span class="lang-level">Fluent</span></div>
+      <div class="lang-pill"><div class="lang-dot fluent"></div><span class="lang-name">Bangla</span><span class="lang-level">Fluent</span></div>
+      <div class="lang-pill"><div class="lang-dot fluent"></div><span class="lang-name">Swedish</span><span class="lang-level">Fluent</span></div>
+      <div class="lang-pill"><div class="lang-dot intermediate"></div><span class="lang-name">Italian</span><span class="lang-level">Intermediate</span></div>
+      <div class="lang-pill"><div class="lang-dot intermediate"></div><span class="lang-name">Spanish</span><span class="lang-level">Intermediate</span></div>
+      <div class="lang-pill"><div class="lang-dot intermediate"></div><span class="lang-name">Hindi</span><span class="lang-level">Intermediate</span></div>
+      <div class="lang-pill"><div class="lang-dot intermediate"></div><span class="lang-name">Urdu</span><span class="lang-level">Intermediate</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Md Shafiqul Baten Sumon · Jamaica, Queens, NY</p>
+  <div class="footer-links">
+    <a href="https://github.com/mdshafiqulbaten" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/md-shafiqul-baten-sumon-41815531a" target="_blank">LinkedIn</a>
+    <a href="mailto:mdshafiqulbatensumon@outlook.com">Email</a>
+  </div>
+</footer>
+
+<script>
+// Fade-up on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Stagger children of grids
+document.querySelectorAll('.skills-grid, .edu-grid, .certs-grid, .research-grid').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.07}s`;
+    child.classList.add('fade-up');
+    obs.observe(child);
+  });
+});
+</script>
+</body>
+</html>
